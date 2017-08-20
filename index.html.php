@@ -3,12 +3,10 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Admin Dashboard</title>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/css/bootstrap-grid.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
-	<!-- <h1> <?php  echo $hello;  ?>  </h1> -->
   <div id="site-wrapper">
         <div id="site-canvas">
             <a href="#" class="toggle-nav">
@@ -25,6 +23,7 @@
              <div class="content">
     <!-- <div class="bg" style="background-color: red; height: 100vh;width: 100vw;"></div> -->
             <?php include 'includes/html/tiles.html.php'; ?> 
+            <?php include 'includes/pages/tables.html.php'; ?> 
              </div>  
         </div>
     </div>
