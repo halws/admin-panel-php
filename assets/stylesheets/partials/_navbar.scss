@@ -1,0 +1,107 @@
+
+
+#site-menu {
+    width: $site-menu-width;
+    height: $site-menu-height;
+    position: absolute;
+    left: -$site-menu-width;
+    top: 0;
+}
+ 
+
+.cd-accordion-menu {
+    width: $navbar-width;
+    max-width: $navbar-max-width;
+    height: 100%;
+    list-style-type: none;
+    background-color: $nav-bg-second-color;
+
+    ul {
+        display: none;
+
+        label {
+            padding-left: 100px;
+        }
+
+        a {
+            padding-left: 100px;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        a {
+            background: $nav-bg-color;
+
+            &:hover {
+                background: $nav-bg-color-darnen;
+            }
+        }
+    }
+
+    label {
+        position: relative;
+        display: block;
+        padding: 18px 18px 18px 50px;
+        background: $nav-bg-second-color;
+        color: $navbar-color;
+        font-size: $base-font-size;
+        cursor: pointer;
+
+        &:hover {
+            color: $nav-color-lighten;
+        }
+    }
+
+    a {
+        @extend label;
+        text-decoration: none;
+    }
+
+    input[type=checkbox] {
+        position: absolute;
+        opacity: 0;
+    }
+}
+
+.cd-accordion-menu input[type=checkbox]:checked+label+ul,
+.cd-accordion-menu input[type=checkbox]:checked+label:nth-of-type(n)+ul {
+    display: block;
+}
+
+.icon::before {
+    display: inline-block;
+    margin-right: 0.5em;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    @include prefix(transform, translate(0,0), webkit ms moz o);
+}
+
+.logo {
+
+    font-size: $logo-font-size;
+    font-family: "Pacifico";
+    color: $navbar-color;
+    background: $nav-bg-second-color;
+
+    white-space: nowrap;
+    text-align: center ;
+    width: $site-menu-width;
+    height: $logo-heigth;
+    span{
+      line-height: $logo-heigth;
+      cursor: pointer;
+      &:hover{
+        color: $nav-color-lighten;
+      }
+    }
+}
+.show-nav #site-canvas {
+  @include prefix(transform, translateX(300px),moz ms webkit o);
+  @include prefix(transform, translate3d(300px,0,0),moz ms webkit o);
+
+}

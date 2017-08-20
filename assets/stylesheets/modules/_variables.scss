@@ -1,0 +1,67 @@
+
+//font-weight
+$light:100;
+$regular:400;
+$bold:600;
+
+//base-font
+$base-font:sans-serif;
+$base-font-weight:$regular;
+$base-font-size:16px;
+$base-font-height:1.4;
+//advanced-font
+// $pacifico-font:"Pacifico";
+$open-sans-font:"Open Sans";
+
+// navbar-variables
+$site-menu-width:300px;
+$site-menu-height:100vh;
+
+$navbar-width:100%;
+$navbar-max-width:300px;
+//nav-color
+$nav-bg-color:#2C3E50;
+$nav-bg-second-color:#34495E;
+$navbar-color:#e5e5e5;
+$nav-color-lighten:lighten($navbar-color,15%);
+$nav-color-darken:darken($navbar-color,10%);
+$nav-bg-color-lighten:lighten($nav-bg-color,10%);
+$nav-bg-color-darnen:darken($nav-bg-color,2.5%);
+$nav-bg-second-color-lighten:lighten($nav-bg-second-color,10%);
+$nav-bg-second-color-darken:darken($nav-bg-second-color,5%);
+
+//nav-icon variables
+$button-size:35px;
+$transition:.5s;
+$color: #fff;
+$button-width:100%;
+$nav-line-height:$button-size/7;
+$button-width:100%;
+$button-height:100%;
+$hexagon-width:60px;
+$hexagon-heigth:34.64px;
+$hexagon-bg-color:#5fafe4;
+$hexagon-bg-color-darken:darken($hexagon-bg-color,10%);
+//logo
+$logo-font-size:25px;
+$logo-heigth:100px;
+//top-nav
+
+$top-nav-color: rgb(149, 160, 170);
+$top-nav-color-lighten:lighten($top-nav-color,20%);
+$top-nav-bg-color:#fff;
+$top-nav-height:100px;
+
+//tiles
+$tile1-color:#5fafe4;
+$tile2-color:#6eb4e5;
+$tile3-color:#7dbde9;
+$tile4-color:#8cc3ea;
+$tiles-color:$tile1-color,$tile2-color,$tile3-color,$tile4-color;
+
+//content
+$content-background-color: rgb(238, 238, 238);
+
+//statistics-cloud
+$st-color:#777777;
+$title-bg-color:darken(#e5e5e5,10%);

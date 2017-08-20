@@ -1,0 +1,80 @@
+
+.button {
+    position: relative;
+    width: $button-width;
+    height: $button-height;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lines {
+    @include line;
+    position: relative;
+    &::after,
+    &::before {
+        @include line;
+        position: absolute;
+        left: 0;
+        content: "";
+        transform-origin: $button-size/14 center;
+    }
+
+    &::before {
+        top: $button-size/4;
+    }
+
+    &::after {
+        top: -$button-size/4;
+    }
+}
+
+.lines.close {
+    background: transparent;
+    &::after,
+    &::before {
+        transform-origin: 50% 50%;
+        top: 0;
+        width: $button-size;
+    }
+
+    &::before {
+        transform: rotate3d(0,0,1,45deg);
+    }
+
+    &::after {
+        transform: rotate3d(0,0,1,-45deg);
+    }
+}
+//hexagon
+.hexagon {
+    position: relative;
+    width: $hexagon-width;
+    height: $hexagon-heigth;
+    background-color: $hexagon-bg-color;
+    margin: $hexagon-heigth/2 0;
+
+}
+
+.hexagon:after,
+.hexagon:before {
+    content: "";
+    position: absolute;
+    width: 0;
+    border-left: $hexagon-width/2 solid transparent;
+    border-right: $hexagon-width/2 solid transparent;
+  
+}
+
+.hexagon:before {
+    bottom: 100%;
+    border-bottom: $hexagon-heigth/2 solid $hexagon-bg-color;
+
+}
+
+.hexagon:after {
+    top: 100%;
+    width: 0;
+    border-top: $hexagon-heigth/2 solid $hexagon-bg-color;
+
+}

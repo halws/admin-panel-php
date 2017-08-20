@@ -1,0 +1,21 @@
+/// Mixin to prefix a property
+@mixin prefix($property, $value, $prefixes: ()) {
+  @each $prefix in $prefixes {
+    #{'-' + $prefix + '-' + $property}: $value;
+  }
+
+  // Output standard non-prefixed declaration
+  #{$property}: $value;
+}
+//mixin to make line for navicon
+@mixin line {
+  display: inline-block;
+  width: $button-size;
+  height: $nav-line-height;
+  background:$color;
+  border-radius: $button-size/14;
+  transition: $transition;
+
+}
+
+
