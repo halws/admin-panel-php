@@ -24,7 +24,7 @@
              <div class="content">
     <!-- <div class="bg" style="background-color: red; height: 100vh;width: 100vw;"></div> -->
             <?php include 'includes/html/tiles.html.php'; ?> 
-            <?php  include 'includes/html/tables.html.php';
+            <?php  include 'includes/html/addform.html.php';
              ?>
              </div>  
         </div>

@@ -21,7 +21,7 @@
                         <!-- <a href="#" class="icon fa-envelope-o">Webmail Service</a> -->
                         <ul>
                             <li><a href="#">Look items</a></li>
-                            <li><a href="#">Add New item</a></li>
+                            <li><a href="?additem">Add New item</a></li>
                             <li><a href="#">Remove items</a></li>
                             <li><a href="#">Edit items</a></li>
                         </ul>

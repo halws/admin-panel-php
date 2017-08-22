@@ -1,10 +1,40 @@
 <?php 
 // $hello = "Hello";
-include 'includes/inc/bd.inc.php';
-include 'includes/inc/helpers.inc.php';
-if ($conn) {
-	// echo "Ok";
+include_once 'includes/inc/bd.inc.php';
+include_once 'includes/inc/helpers.inc.php';
+
+
+if (isset($_GET['additem'])) {
+	try {
+		// echo "Hello";
+
+		$stmt = "SELECT color, category FROM color
+		 JOIN usecategory on 1=1
+		 ";
+		$result = $conn->query($stmt);
+		foreach ($result as $row) {
+			$selected[] = array(
+				"color"=>$row['color']
+				,
+				"category"=>$row['category']
+				);
+
+		}
+		// foreach ($selected as $row) {
+			
+
+		// 	echo $row['category'];
+		// 	echo $row['color'];
+		// }
+	} catch (PDOException $e) {
+		error($e);
+	}
+
+	
+	include 'includes/pages/addelement.html.php';
 }
+else{	
+
 try {
 	$stmt = "SELECT items.id,items.title,description,color.color,usecategory.category
 	,price.price,count.count
@@ -15,8 +45,6 @@ try {
 	INNER JOIN price on color.id=price.id
 	INNER JOIN count on color.id=count.id
 	";
-	// $stm"SELECT items.id,item.title,description,color.color,
-	// FROM olios.items";
 	$result = $conn->query($stmt);
 	foreach ($result as $row) {
 		$elements[] = array(
@@ -33,13 +61,18 @@ try {
 } catch (PDOException $e) {
 	error($e);
 }
-
-
-
-
-
-
-
+try {
+	$stmt = "SELECT category FROM usecategory";
+	$result = $conn->query($stmt);
+	foreach ($result as $row) {
+		$category[] = array(
+			'category'=>$row['category']
+			);
+	}
+} catch (PDOException $e) {
+	error($e);
+	
+}
 
 
 
@@ -47,4 +80,9 @@ try {
 
 
 	include 'index.html.php';
+
+}
+
+
+
  ?>

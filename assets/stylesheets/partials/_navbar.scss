@@ -15,8 +15,10 @@
     height: 100%;
     list-style-type: none;
     background-color: $nav-bg-second-color;
-
+    margin-top: 0 !important;
+        padding-left: 0 !important;
     ul {
+        padding-left: 0 !important;
         display: none;
 
         label {

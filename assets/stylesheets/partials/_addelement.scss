@@ -1,0 +1,17 @@
+.content{
+	.addform{
+		legend{
+			text-align: center;
+			text-transform: uppercase;
+		}
+		// border:1px solid red;
+		display: flex;
+		// align-items: center;
+		justify-content: center;
+		// background-color: #fff;
+		margin: 0 80px;
+		form{
+			background-color:$content-background-color;
+		}
+	}
+}

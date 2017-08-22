@@ -1,5 +1,24 @@
-.tables{
-	// border:1px solid red;
-	background-color: #fff;
-	padding:0 80px;
+table {
+    margin-top: 0 !important;
+}
+
+.tables {
+    margin: 0 80px;
+    background-color: #fff;
+    .options {
+    	display: flex;
+    	align-items: center;
+        padding: 5px 5px 5px 15px;
+        .selectors{
+        	margin-left: auto;
+        	margin-right: 5%;
+        }
+        h1 {
+            margin: 0 !important;
+            font-size: 35px;
+        }
+    }
+}
+label{
+	user-select:none;
 }
