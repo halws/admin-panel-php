@@ -18,14 +18,9 @@ if (isset($_GET['additem'])) {
 				,
 				"category"=>$row['category']
 				);
-
-		}
-		// foreach ($selected as $row) {
 			
-
-		// 	echo $row['category'];
-		// 	echo $row['color'];
-		// }
+		}
+		
 	} catch (PDOException $e) {
 		error($e);
 	}

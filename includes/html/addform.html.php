@@ -35,6 +35,10 @@
 			<option>New category</option>
 		</select>
 		</div>
+		<!-- NEW CATEGORY -->
+		<div class="uk-margin">
+			<input type="text" class="uk-input uk-form-width-large" placeholder="New category" disabled>
+		</div>
 		<!-- PRICE -->
 		<div class="uk-margin">
 			<input type="text" class="uk-input uk-form-width-large" placeholder="Price">
