@@ -1,4 +1,5 @@
- <div class="logo"><span>Olios Dashboard</span></div>
+     <div id="site-menu">
+             <div class="logo"><span>Olios Dashboard</span></div>
                 <ul class="cd-accordion-menu ">
                     <li class="has-children">
                         <input type="checkbox" name="mainSetting" id="mainSetting" unchecked>
@@ -47,3 +48,4 @@
                         <a href="#" class="icon fa-clock-o">Freelance time manager</a>
                     </li> -->
                 </ul>
+     </div> 

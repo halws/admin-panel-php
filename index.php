@@ -2,14 +2,20 @@
 // $hello = "Hello";
 include_once 'includes/inc/bd.inc.php';
 include_once 'includes/inc/helpers.inc.php';
+// $title = '';
+if ($_SERVER['REQUEST_METHOD']=='POST' && isset($_GET['additem'])) {
 
+	include 'includes/php/addform.php';
+	header("Location:.");
+	die;
+}
 
 if (isset($_GET['additem'])) {
 	try {
 		// echo "Hello";
 
 		$stmt = "SELECT color, category FROM color
-		 JOIN usecategory on 1=1
+		 JOIN category on 1=1
 		 ";
 		$result = $conn->query($stmt);
 		foreach ($result as $row) {
@@ -18,27 +24,25 @@ if (isset($_GET['additem'])) {
 				,
 				"category"=>$row['category']
 				);
-			
+
 		}
 		
 	} catch (PDOException $e) {
 		error($e);
 	}
 
-	
-	include 'includes/pages/addelement.html.php';
+    include 'includes/pages/addelement.html.php';
+	die;
 }
-else{	
+// else{	
 
 try {
-	$stmt = "SELECT items.id,items.title,description,color.color,usecategory.category
-	,price.price,count.count
-	FROM olios.items 
-	INNER JOIN usecategory on categoryid=usecategory.id
-	INNER JOIN itemcolor on items.id=itemid 
-	INNER JOIN color on colorid=color.id 
-	INNER JOIN price on color.id=price.id
-	INNER JOIN count on color.id=count.id
+	$stmt = "SELECT  itemcolor.id, title,description,color,category,price,count FROM items
+				INNER JOIN itemcolor ON itemcolor.itemid = items.id 
+				INNER JOIN price ON itemcolor.id = price.id_itemcolor
+				INNER JOIN itemcount ON itemcolor.id = itemcount.id_itemcolor
+				INNER JOIN color ON itemcolor.colorid = color.id
+				INNER JOIN category ON items.categoryid = category.id
 	";
 	$result = $conn->query($stmt);
 	foreach ($result as $row) {
@@ -57,7 +61,7 @@ try {
 	error($e);
 }
 try {
-	$stmt = "SELECT category FROM usecategory";
+	$stmt = "SELECT category FROM category";
 	$result = $conn->query($stmt);
 	foreach ($result as $row) {
 		$category[] = array(
@@ -76,7 +80,7 @@ try {
 
 	include 'index.html.php';
 
-}
+// }
 
 
 

@@ -15,17 +15,12 @@
                     <div class="button "><span class="lines "></span></div>
                 </div>
             </a>
-             <div id="site-menu">
-               <?php include 'includes/html/left-menu.html.php'; ?>
-            </div> 
-             <div class="top-nav">
-                <?php include 'includes/html/top-nav.html.php'; ?>
-            </div> 
+               <?php include 'includes/html/site-menu.html.php'; ?>
+               <?php include 'includes/html/top-nav.html.php'; ?>
              <div class="content">
-    <!-- <div class="bg" style="background-color: red; height: 100vh;width: 100vw;"></div> -->
             <?php include 'includes/html/tiles.html.php'; ?> 
-            <?php  include 'includes/html/tables.html.php';
-             ?>
+            <!-- <?php echo $title; ?> -->
+             <?php include 'includes/html/tables.html.php';?>
              </div>  
         </div>
     </div>
