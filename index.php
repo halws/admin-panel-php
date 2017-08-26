@@ -4,9 +4,9 @@ include_once 'includes/inc/bd.inc.php';
 include_once 'includes/inc/helpers.inc.php';
 // $title = '';
 if ($_SERVER['REQUEST_METHOD']=='POST' && isset($_GET['additem'])) {
-
+	// echo("Hello");
 	include 'includes/php/addform.php';
-	header("Location:.");
+	// header("Location:.");
 	die;
 }
 
@@ -14,18 +14,23 @@ if (isset($_GET['additem'])) {
 	try {
 		// echo "Hello";
 
-		$stmt = "SELECT color, category FROM color
-		 JOIN category on 1=1
-		 ";
-		$result = $conn->query($stmt);
-		foreach ($result as $row) {
-			$selected[] = array(
+		$stmt = "SELECT color FROM color";
+		// $result = $conn->query($stmt);
+		$color_result = $conn->query($stmt);
+		foreach ($color_result as $row) {
+			$color[] = array(
 				"color"=>$row['color']
-				,
+				);
+
+		$stmt = "SELECT  category FROM category";
+		$category_result = $conn->query($stmt);
+		}foreach ($category_result as $row) {
+			$category[] = array(
 				"category"=>$row['category']
 				);
 
 		}
+
 		
 	} catch (PDOException $e) {
 		error($e);

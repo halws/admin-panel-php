@@ -15,8 +15,8 @@
 		<div class="uk-margin">
 			<select name="color" class="uk-select uk-form-width-large">
 				<option value="" disabled selected > Select color</option>
-				<?php foreach($selected as $row): ?>
-					<option value=" <?php echo $row['color']; ?> " id="">
+				<?php foreach($color as $row): ?>
+					<option value="<?php echo $row['color']; ?>">
 					<?php echo $row['color']; ?></option>
 			<?php endforeach; ?>
 				<option value="newColor">New color</option>
@@ -24,13 +24,13 @@
 		</div>
 		<!-- NEW COLOR -->
 		<div class="uk-margin">
-			<input name="newColor" type="text" class="uk-input uk-form-width-large" placeholder="New color" disabled>
+			<input name="newColor" type="text" class="uk-input uk-form-width-large" placeholder="New color" >
 		</div>
 		<!-- CATEGORY -->
 		<div class="uk-margin">
 		<select name="category"  class="uk-select uk-form-width-large" placeholder="Select category">
 			<option value="" disabled selected>Select category</option>
-			<?php foreach($selected as $row): ?>
+			<?php foreach($category as $row): ?>
 			<option value="<?php echo $row['category']; ?>">
 			<?php echo $row['category']; ?></option>
 			<?php endforeach; ?>
@@ -39,7 +39,7 @@
 		</div>
 		<!-- NEW CATEGORY -->
 		<div class="uk-margin">
-			<input name="newCategory" type="text" class="uk-input uk-form-width-large" placeholder="New category" disabled>
+			<input name="newCategory" type="text" class="uk-input uk-form-width-large" placeholder="New category" >
 		</div>
 		<!-- PRICE -->
 		<div class="uk-margin">
