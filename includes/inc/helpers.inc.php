@@ -12,4 +12,9 @@
 	{
 			echo("  Error " . $e->getMessage());
 	}
+	function rootD()
+	{
+		$dir = str_replace('\\', '/', $_SERVER['DOCUMENT_ROOT']);
+		return $dir.'/php/admin-panel';
+	}
  ?>

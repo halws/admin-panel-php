@@ -1,9 +1,10 @@
 <?php 
-
+include 'jsonManipulation.php';
 		$sql = array();
 		if ($_POST['category'] !='' && $_POST['category']=='newCategory') {
 			$sql['insertCategory'] = 'INSERT INTO category(category) VALUES(:newCategory)';
-			$sql['selectCategory'] = 'SELECT  LAST_INSERT_ID() INTO @categoryid'; // categoryid 
+			$sql['selectCategory'] = 'SELECT  LAST_INSERT_ID() INTO @categoryid'; 
+			// categoryid 
 		}else{
 			$sql['selectCategory'] = ' SELECT @categoryid := id FROM category 
 			 WHERE category=:category ';// category select;
@@ -77,51 +78,12 @@ if ($_POST['color'] !='' && $_POST['color']=='newColor') {
 		$stmt['insertCount']->bindValue(':count',$_POST['count']);
 		$stmt['insertCount'] ->execute();
 
-			// $placeholders[':price'] = $_POST['price'];
-
-// 			$placeholders[':count'] = $_POST['count'];
-
-
-
-
-
-
-		// $stmt['insertColor'] ->bindValue(':newColor',$_POST['newColor']);
-		// $stmt['insertColor'] ->execute();
-		// $stmt['insertColor'] ->execute();
-
-
-
-
-
-		// $sql =$insertItem;
-		// // $sql = $insertColor;
-		// $s = $conn->prepare($sql);
-		// $s->execute($placeholders);
-		// // $conn->commit();
-
-		// $sql = $insertColor;
-		// $s = $conn->prepare($sql);
-		// $s->execute($placeholders);
-
 		$conn->commit();
-			// $sql = $startTransaction 
-			//       .$insertCategory .$categoryid . $selectCategory 
-			// 	  .$insertColor .$colorId. $selectColor 
-			//       .$insertItem . $itemid 
-			//       .$insertItemColor .$id_itemcolor
-			//       .$insertPrice
-			//       .$insertCount
-			//       .$endTransaction;
+		getData($conn);
 		header("Location:.");
 		} catch (PDOException $e) {
 			$conn->rollBack();
 			error($e);
 		}	
-	
-		
-
-
-
 
  ?>

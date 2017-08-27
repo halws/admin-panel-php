@@ -21,6 +21,8 @@
             <?php include 'includes/html/tiles.html.php'; ?> 
             <!-- <?php echo $title; ?> -->
              <?php include 'includes/html/tables.html.php';?>
+             <!-- <?php include 'includes/php/jsonManipulation.php';?> -->
+
              </div>  
         </div>
     </div>

@@ -1,46 +1,34 @@
 <?php 
-// $hello = "Hello";
 include_once 'includes/inc/bd.inc.php';
 include_once 'includes/inc/helpers.inc.php';
-// $title = '';
 if ($_SERVER['REQUEST_METHOD']=='POST' && isset($_GET['additem'])) {
-	// echo("Hello");
 	include 'includes/php/addform.php';
-	// header("Location:.");
 	die;
 }
-
+	//ADD ITEM
 if (isset($_GET['additem'])) {
 	try {
-		// echo "Hello";
-
 		$stmt = "SELECT color FROM color";
-		// $result = $conn->query($stmt);
 		$color_result = $conn->query($stmt);
 		foreach ($color_result as $row) {
 			$color[] = array(
 				"color"=>$row['color']
 				);
-
 		$stmt = "SELECT  category FROM category";
 		$category_result = $conn->query($stmt);
 		}foreach ($category_result as $row) {
 			$category[] = array(
 				"category"=>$row['category']
 				);
-
 		}
-
 		
 	} catch (PDOException $e) {
 		error($e);
 	}
-
     include 'includes/pages/addelement.html.php';
 	die;
 }
-// else{	
-
+	// SELECT ALL ITEMS FOR MAIN PAGE
 try {
 	$stmt = "SELECT  itemcolor.id, title,description,color,category,price,count FROM items
 				INNER JOIN itemcolor ON itemcolor.itemid = items.id 
@@ -48,6 +36,7 @@ try {
 				INNER JOIN itemcount ON itemcolor.id = itemcount.id_itemcolor
 				INNER JOIN color ON itemcolor.colorid = color.id
 				INNER JOIN category ON items.categoryid = category.id
+				ORDER BY itemcolor.id;
 	";
 	$result = $conn->query($stmt);
 	foreach ($result as $row) {
@@ -70,7 +59,7 @@ try {
 	$result = $conn->query($stmt);
 	foreach ($result as $row) {
 		$category[] = array(
-			'category'=>$row['category']
+		'category'=>$row['category']
 			);
 	}
 } catch (PDOException $e) {
