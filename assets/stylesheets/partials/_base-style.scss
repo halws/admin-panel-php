@@ -2,7 +2,9 @@
     margin: 0;padding: 0;
 
 }
-
+body.stopOverflow {
+        overflow: hidden;
+    }
 #site-wrapper {
     position: relative;
     height: auto;
@@ -21,13 +23,35 @@
         position: absolute;
         top: ($logo-heigth/2)-35px;
         left: -30px;
-        z-index: 1;
+        z-index: 1010;
     }
 }
 
 .content {
     min-width: 1200px;
-    height: 100vh;
+    min-height: 100vh;
     background: $content-background-color;
     padding-top: 110px;
+}
+.shadow{
+    position: absolute;
+    visibility:hidden;
+    display: flex;
+    height: 100%;
+    width: 100%;
+    z-index: 1005;
+    // background-color: grey;
+    // border:1px solid red;
+     opasity: 0;
+    transition: all 1.5s;
+    &.visible {
+        overflow: hidden;
+        visibility:visible;
+        // position: fixed;
+        // left: 0;
+        z-index: 1005;
+        filter: alpha(opacity=90);
+        opacity: 0.9;
+        background-color: black;
+    }
 }

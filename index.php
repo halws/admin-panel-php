@@ -1,12 +1,14 @@
 <?php 
 include_once 'includes/inc/bd.inc.php';
 include_once 'includes/inc/helpers.inc.php';
+include 'includes/php/dragDrop.php';
 if ($_SERVER['REQUEST_METHOD']=='POST' && isset($_GET['additem'])) {
 	include 'includes/php/addform.php';
 	die;
 }
 	//ADD ITEM
 if (isset($_GET['additem'])) {
+
 	try {
 		$stmt = "SELECT color FROM color";
 		$color_result = $conn->query($stmt);

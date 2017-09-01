@@ -10,18 +10,20 @@
 <body>
   <div id="site-wrapper">
         <div id="site-canvas">
-            <a href="#" class="toggle-nav ">
+         <a href="#" class="toggle-nav ">
                 <div class="hexagon z-depth-3">
                     <div class="button "><span class="lines "></span></div>
                 </div>
             </a>
+        <div class="shadow">
+           
+            
+        </div>
                <?php include 'includes/html/site-menu.html.php'; ?>
                <?php include 'includes/html/top-nav.html.php'; ?>
              <div class="content">
             <?php include 'includes/html/tiles.html.php'; ?> 
-            <!-- <?php echo $title; ?> -->
              <?php include 'includes/html/tables.html.php';?>
-             <!-- <?php include 'includes/php/jsonManipulation.php';?> -->
 
              </div>  
         </div>
