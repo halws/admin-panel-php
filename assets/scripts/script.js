@@ -16,12 +16,14 @@ $(function() {
         select.change(function(event) {
             var option = $(this).children(':selected');
             if (option.val() == value) {
+                input.attr('required', 'true');
                 input.removeAttr('disabled').focus();
                 input.focusout(function() {
                     console.log($(this).val());
                     if ($(this).val() == '') {
                         select.val('');
                         $(this).attr('disabled', 'disabled');
+                        $(this).removeAttr('required');
 
                     }
                 });
@@ -31,7 +33,7 @@ $(function() {
     inputSwitcher($('.color-select'), 'newColor', $('#newColor'));
     inputSwitcher($('.category-select'), 'newCategory', $('#newCategory'));
     $('#formAdd').on('submit', function(event) {
-        event.preventDefault();
+        // event.preventDefault();
         /* Act on the event */
     });
     // console.log();

@@ -5,11 +5,11 @@
 			<legend class="uk-legend">Add new element</legend>
 			<!-- TITLE -->
 			<div class="uk-margin">
-			<input  name="title" type="text" class="uk-input uk-form-width-1-1" placeholder="Title" required  >
+			<input  name="title" type="text" class="uk-input uk-form-width-1-1" placeholder="Title"  required >
 			<!-- DESCRIPTION-->
 		</div>
 		<div class="uk-margin">
-		<textarea name="description" placeholder="Description" cols="30" rows="5" class="uk-textarea uk-form-width-1-1" required "></textarea>
+		<textarea name="description" placeholder="Description" cols="30" rows="5" class="uk-textarea uk-form-width-1-1"  "></textarea>
 		</div>
 		<!-- COLOR -->
 		<div class="uk-margin">
@@ -52,14 +52,14 @@
 		</div>
 		<div>
 			<input type="submit" value="Send" class="uk-button  uk-button-primary" 
-			id="additemSubmit" >
+			id="additemSubmit" disabled>
 		</div>
 
 		</fieldset>
 
 	</form>
 	<div class=" uk-width-1-2 dragDrop">
-		<form  method="post" action="index.php" enctype="multipart/form-data" class="box uk-placeholder uk-text-center">
+		<form  method="post" action="" enctype="multipart/form-data" class="box uk-placeholder uk-text-center">
         <div class="box__input">
             <label for="file" class="uk-margin"><strong>Choose a file</strong>
             <span class="uk-hidden"> or drag it here</span>.</label><br>
@@ -70,12 +70,8 @@
         </div>
         <div class="box__uploading">Uploading&hellip;</div>
         <div class="box__success uk-alert-success uk-hidden">Done!</div>
-        <div class="box__error uk-alert-danger uk-width-auto uk-hidden">Error! <span></span></div>
-        <!-- <progress id="progressbar" class="uk-progress" value="0" max="100" visible></progress> -->
-    </form>
-    	
+        <div class="box__error uk-alert-danger uk-width-auto uk-hidden">Error! <span></span></div>   
+    </form>	
     </div>
-    <!-- <div id="submit" class="uk-margin uk-form-width-1-2">
-	</div> -->
 
 </div>
