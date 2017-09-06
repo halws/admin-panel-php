@@ -29,11 +29,10 @@ include 'jsonManipulation.php';
 		$sql['id_itemcolor'] = 'SELECT LAST_INSERT_ID() INTO @id_itemcolor';
 
 	//insert into pictures 
-	$temp =rootD() . "/assets/pictures/temp/";
-	$files = glob($temp."*.{jpg,png,gif}",GLOB_BRACE);
+	$files =array_filter(glob(rootD() . "/assets/pictures/temp/*",GLOB_BRACE),'is_file');
 	foreach ($files as $key) {
 	$sql[$key] = "INSERT INTO images(id_itemcolor,link,alt)
-	VALUES(@id_itemcolor,:link,'Lorem ipsum')";
+	VALUES(@id_itemcolor,:link,:alt)";
 
 }
 		
@@ -84,21 +83,26 @@ if ($_POST['color'] !='' && $_POST['color']=='newColor') {
 		// //SELECT ITEMCOLOR ID
 		$stmt['id_itemcolor'] ->execute();
 
-		
+		$files =array_filter( glob(rootD() . "/assets/pictures/temp/*",GLOB_BRACE),'is_file');
 		//insert pictures
 		$sql = $conn->prepare("SELECT * FROM itemcolor");
 		$sql->execute();
 		$result = $sql->fetchAll();
 		$last_id = end($result);
+		// print_r($files);
 		foreach ($files as $key=>$link) {
+			// echo ($link . "<br>");
 			$extension =end(explode(".", $link));
+			// print_r($extension);
 			$target_name = str_replace(' ','_',$_POST['title']);
+			// print_r($target_name);
 			$target_file =rootD() . "/assets/pictures/" . $target_name ."_"
 			.$last_id['itemid'] ."_" . $key .  "." . $extension;
+			// print_r($target_file . "<br>");
 			$stmt[$link]->bindValue(':link',$target_file);
+			$stmt[$link]->bindValue(':alt', "this is picture of ".$target_name);
 			$stmt[$link]->execute();
-			echo($link . "<br>");
-			echo($target_file . "<br>");
+			// echo($target_file . "<br>");
 			rename($link,$target_file);
 		}
 
